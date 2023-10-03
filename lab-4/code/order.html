@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="page">
+      <form class="form" action="order.php" method="POST">
+        <h3 class="form__title">Оформление заказа</h3>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="course_type">
+            Выбор товара
+          </label>
+          <div class="form__radio-buttons" id="radio-buttons">
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="shabutdinov"
+                name="course_type"
+                value="shabutdinov"
+                required
+              />
+              <label for="shabutdinov">
+                Бизнес-курс «Парни, вы издеваетесь?» от Аяза Шабутдинова.
+                <br />
+                77777 рублей за курс
+              </label>
+            </div>
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="blinovskaya"
+                name="course_type"
+                value="blinovskaya"
+                required
+              />
+              <label for="blinovskaya">
+                Курс по «Налоговой грамотности» от Елены Блиновской.
+                <br />
+                100500 рублей за курс
+              </label>
+            </div>
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="mavrodi"
+                name="course_type"
+                value="mavrodi"
+                required
+              />
+              <label for="mavrodi">
+                «Почему за пирамидами будущее?» — новый курс от последователей
+                Сергея Мавроди
+                <br />
+                333333 рублей за курс
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="last_name">
+            Фамилия
+          </label>
+          <input class="form__input" id="last_name" name="last_name" required />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="first_name">
+            Имя
+          </label>
+          <input
+            class="form__input"
+            id="first_name"
+            name="first_name"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="patronymic">
+            Отчество (при наличии)
+          </label>
+          <input class="form__input" id="patronymic" name="patronymic" />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="email">
+            Электронная почта
+          </label>
+          <input
+            class="form__input"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="phone">
+            Телефон (в формате +7 (123) 456-78-91)
+          </label>
+          <input
+            class="form__input"
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
+            minlength="18"
+            maxlength="18"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="address">
+            Адрес
+          </label>
+          <input class="form__input" id="address" name="address" required />
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="comment">
+            Комментарий к заказу
+          </label>
+          <textarea
+            class="form__textarea"
+            id="comment"
+            name="comment"
+            maxlength="255"
+          ></textarea>
+        </div>
+
+        <div class="form__comment">
+          Поля, помеченные <label class="form__label_required"></label>,
+          являются обязательными
+        </div>
+        <button class="form__button" type="submit">Отправить</button>
+      </form>
+    </div>
+  </body>
+</html>

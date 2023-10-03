@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+skinparam roundcorner 5
+skinparam shadowing false
+scale 2
+
+hide methods
+hide stereotypes
+
+skinparam class {
+    BackgroundColor white
+    ArrowColor #2688d4
+    BorderColor #2688d4
+}
+
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> x
+!define column(x) <color:#efefef><&media-record></color> x
+!define unique_key(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+!define default(x) <i>x</i>
+!define type(x) <color:#2688d4>x</color>
+!define table(x) entity x << (T, white) >>
+
+table(user_account) {
+  primary_key(id): type(INT)
+  --
+  column(unique_key(not_null(email))): type(varchar)(255)
+  column(not_null(password)): type(varchar)(255)
+  column(first_name): type(varchar)(255)
+  column(last_name): type(varchar)(255)
+  column(patronymic): type(varchar)(255)
+  column(phone): type(varchar)(255)
+}
+
+table(order_info) {
+  primary_key(id): type(INT)
+  --
+  foreign_key(not_null(user_id)): type(int)
+  column(not_null(course_type)): type(varchar)(255)
+  column(not_null(address)): type(varchar)(255)
+  column(comment): type(varchar)(255)
+}
+
+order_info::user_id --> user_account::id
+
+@enduml
