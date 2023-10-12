@@ -1,2 +1,5 @@
 [*.{html,css}]
 indent_size = 2
+
+[*.{cpp}]
+indent_size = 4
