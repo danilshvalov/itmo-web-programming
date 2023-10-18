@@ -2,3 +2,5 @@
 build/
 _minted-main/
 .php-cs-fixer.cache
+.cache/
+node_modules/

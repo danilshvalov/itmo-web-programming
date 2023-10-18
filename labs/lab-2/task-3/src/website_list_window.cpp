@@ -95,6 +95,7 @@ WebsiteListWindow::WebsiteListWindow(QWidget* parent) : QMainWindow(parent) {
 
 void WebsiteListWindow::onCreateButtonClicked(bool) {
     form_->clear();
+    form_->setWindowTitle("Добавление URL");
     form_->show();
 }
 
@@ -136,5 +137,6 @@ void WebsiteListWindow::openEditForm(QModelIndex index) {
     form_->clear();
     form_->setFields(model_->getRow(row));
     form_->setRow(row);
+    form_->setWindowTitle("Изменение URL");
     form_->show();
 }

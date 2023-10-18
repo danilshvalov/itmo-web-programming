@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Форма обратной связи</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="page">
+      <form class="form" action="feedback.php" method="POST">
+        <h3 class="form__title">Форма обратной связи</h3>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="last_name">
+            Фамилия
+          </label>
+          <input class="form__input" id="last_name" name="last_name" required />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="first_name">
+            Имя
+          </label>
+          <input
+            class="form__input"
+            id="first_name"
+            name="first_name"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="email">
+            Электронная почта
+          </label>
+          <input
+            class="form__input"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form__field">
+          <label class="form__label form__label_required" for="quality">
+            Оцените качество обслуживания
+          </label>
+          <div class="form__radio-buttons">
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="quality-1"
+                name="quality"
+                value="1"
+                required
+              />
+              <label for="quality-1">1</label>
+            </div>
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="quality-2"
+                name="quality"
+                value="2"
+                required
+              />
+              <label for="quality-2">2</label>
+            </div>
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="quality-3"
+                name="quality"
+                value="3"
+                required
+              />
+              <label for="quality-3">3</label>
+            </div>
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="quality-4"
+                name="quality"
+                value="4"
+                required
+              />
+              <label for="quality-4">4</label>
+            </div>
+            <div class="form__radio-container">
+              <input
+                class="form__radio"
+                type="radio"
+                id="quality-5"
+                name="quality"
+                value="5"
+                required
+              />
+              <label for="quality-5">5</label>
+            </div>
+          </div>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="like">
+            Выберите, что вам больше всего понравилось
+          </label>
+          <div class="form__checkbox-container">
+            <input
+              class="form__checkbox"
+              type="checkbox"
+              id="like-service-speed"
+              name="like-service-speed"
+            />
+            <label for="like-service-speed">Скорость обслуживания</label>
+          </div>
+          <div class="form__checkbox-container">
+            <input
+              class="form__checkbox"
+              type="checkbox"
+              id="like-interface"
+              name="like-interface"
+            />
+            <label for="like-interface">Понятный и простой интерфейс</label>
+          </div>
+          <div class="form__checkbox-container">
+            <input
+              class="form__checkbox"
+              type="checkbox"
+              id="like-assortment"
+              name="like-assortment"
+            />
+            <label for="like-assortment">Большой выбор товаров</label>
+          </div>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="comment"> Комментарий </label>
+          <textarea
+            class="form__textarea"
+            id="comment"
+            name="comment"
+            maxlength="255"
+          ></textarea>
+        </div>
+
+        <div class="form__comment">
+          Поля, помеченные <label class="form__label_required"></label>,
+          являются обязательными
+        </div>
+        <button class="form__button" type="submit">Отправить</button>
+      </form>
+    </div>
+  </body>
+</html>

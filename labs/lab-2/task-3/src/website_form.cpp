@@ -3,8 +3,6 @@
 #include <QVBoxLayout>
 
 WebsiteForm::WebsiteForm(QWidget* parent) : QMainWindow(parent) {
-    setWindowTitle("Добавление URL");
-
     url_label_ = new QLabel(this);
     url_label_->setText("URL");
 
