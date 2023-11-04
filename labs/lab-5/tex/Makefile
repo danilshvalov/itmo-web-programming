@@ -1,8 +1,4 @@
-all: puml pdf
-
-.PHONY: puml
-puml:
-	plantuml puml/* -o ../images/puml
+all: pdf
 
 pdf:
 	latexmk
