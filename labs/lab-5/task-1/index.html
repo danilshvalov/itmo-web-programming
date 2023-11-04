@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="site-map">
+        <h3 class="site-map__title">Выберите действие</h3>
+        <img
+          class="site-map__image"
+          src="/images/map.png"
+          alt="Карта сайта"
+          usemap="#map"
+          width="100%"
+        />
+        <map name="map">
+          <area
+            alt="Вход в аккаунт"
+            href="login.html"
+            coords="124,162,121"
+            shape="circle"
+          />
+          <area
+            alt="Котики"
+            href="cats.html"
+            coords="339,308,356,200,276,123,388,104,436,6,488,103,596,119,519,198,537,308,438,258"
+            shape="poly"
+          />
+          <area
+            alt="Оформление заказа"
+            href="order.html"
+            coords="63,698,396,780,539,747,540,442,396,402,372,407,363,396,355,382,344,369,327,356,314,353,297,353,285,357,274,359,263,346,249,333,235,330,224,328,201,332,187,340,172,346,155,358,147,369,136,385,127,405,122,423,119,445,119,464,118,483,62,503"
+            shape="poly"
+          />
+          <area
+            alt="О нас"
+            href="about.html"
+            coords="117,1011,234,985,242,866,133,820,58,908"
+            shape="poly"
+          />
+          <area
+            alt="Контакты"
+            href="contacts.html"
+            coords="274,846,529,991"
+            shape="rect"
+          />
+        </map>
+      </div>
+    </div>
+  </body>
+</html>
