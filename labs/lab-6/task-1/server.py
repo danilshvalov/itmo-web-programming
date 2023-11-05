@@ -12,4 +12,3 @@ with socket.socket() as sock:
         recieved = conn.recv(1024)
         print(recieved.decode("utf-8"))
         conn.send(b"Hello, client")
-        conn.close()

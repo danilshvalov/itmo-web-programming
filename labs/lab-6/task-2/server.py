@@ -24,4 +24,3 @@ with socket.socket() as sock:
         data = str.encode(str(data))
 
         conn.send(data)
-        conn.close()
