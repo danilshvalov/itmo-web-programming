@@ -4,3 +4,5 @@ _minted-main/
 .php-cs-fixer.cache
 .cache/
 node_modules/
+tutorial-env/
+.idea/
