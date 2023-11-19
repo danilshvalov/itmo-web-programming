@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+skinparam roundcorner 5
+skinparam shadowing false
+scale 2
+
+hide methods
+hide stereotypes
+
+skinparam class {
+    BackgroundColor white
+    ArrowColor #2688d4
+    BorderColor #2688d4
+}
+
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> x
+!define column(x) <color:#efefef><&media-record></color> x
+!define unique_key(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+!define default(x) <i>x</i>
+!define type(x) <color:#2688d4>x</color>
+!define table(x) entity x << (T, white) >>
+
+table(website_feedback) {
+  primary_key(id): type(INT)
+  --
+  column(not_null(first_name)): type(VARCHAR)(255)
+  column(not_null(last_name)): type(VARCHAR)(255)
+  column(not_null(email)): type(VARCHAR)(255)
+  column(not_null(quality)): type(INT)
+  column(not_null(like_service_speed)): type(BOOLEAN)
+  column(not_null(like_interface)): type(BOOLEAN)
+  column(not_null(like_assortment)): type(BOOLEAN)
+  column(comment): type(VARCHAR)(255)
+}
+
+@enduml

@@ -6,3 +6,5 @@ _minted-main/
 node_modules/
 tutorial-env/
 .idea/
+__pycache__/
+venv/

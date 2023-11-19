@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}<title>Форма обратной связи</title>{% endblock %}
+{% block content %}
+
+<div class="redirect-info">
+  <h3 class="redirect-info__title">Спасибо за обратную связь!</h3>
+  <a class="redirect-info__link" href="{% url 'index' %}">Вернуться назад</a>
+</div>
+
+{% endblock %}

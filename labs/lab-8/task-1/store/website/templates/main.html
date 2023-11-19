@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    {% block title %}<title>Магазин</title>{% endblock %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a class="navigation__link" href="{% url 'index' %}">
+              Главная
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="{% url 'about' %}">
+              О разработке
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="{% url 'feedback' %}">
+              Оставить обратную связь
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="page">
+      {% block content %}{% endblock %}
+    </div>
+
+    <footer class="footer">
+      Не ждите чуда. Вы и есть чудо!
+    </footer>
+  </body>
+</html>

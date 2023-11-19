@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}<title>Страница не найдена</title>{% endblock %}
+{% block content %}
+
+<div class="not-found">
+  <h3 class="not-found__title">
+    Страница не найдена
+  </h3>
+  <p class="not-found__description">
+    Возможно, вы указали неправильный адрес страницы.
+  </p>
+  <img
+    class="not-found__image"
+    src="{% static 'assets/images/sad-cat.jpg' %}"
+    alt="Грустный котик"
+  />
+  <p class="not-found__description">
+    Если это не так, обратитесь в нашу службу поддержки.
+  </p>
+</div>
+
+{% endblock %}

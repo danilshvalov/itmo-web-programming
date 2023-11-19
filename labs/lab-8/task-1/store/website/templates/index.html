@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}<title>Главная</title>{% endblock %}
+{% block content %}
+
+<div class="page">
+  <ul class="actions">
+    <h3 class="actions__title">Вам может быть интересно</h3>
+    <li class="actions__item">
+      <a class="actions__link" href="{% url 'about' %}">
+        О разработке
+      </a>
+    </li>
+    <li class="actions__item">
+      <a class="actions__link" href="{% url 'feedback' %}">
+        Оставить обратную связь
+      </a>
+    </li>
+  </ul>
+  <p class="actions-description">
+    Если вам это не интересно, желаем хорошего дня!
+  </p>
+</div>
+
+{% endblock %}
