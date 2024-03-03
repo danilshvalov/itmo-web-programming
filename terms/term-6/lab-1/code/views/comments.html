@@ -1,0 +1,52 @@
+<head>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <form class="comment-form" method="POST" action="php/comment-form.php">
+      <h3 class="comment-form__title">Оставить комментарий</h3>
+      <fieldset class="comment-form__fields">
+        <label class="comment-form__label" for="author_name">Имя</label>
+        <input
+          class="comment-form__input"
+          type="text"
+          id="author_name"
+          name="author_name"
+          required
+        />
+        <label class="comment-form__label" for="content">Комментарий</label>
+        <textarea
+          class="comment-form__text-area"
+          id="content"
+          name="content"
+          required
+        ></textarea>
+        <input
+          class="comment-form__submit-button"
+          type="submit"
+          value="Отправить"
+        />
+      </fieldset>
+    </form>
+    <div class="comments">
+      <h3 class="comments__title">Комментарии</h3>
+      {% for comment in comments %}
+      <div id="{{ comment['id'] }}" class="comment">
+        <div class="comment__header">
+          <div class="comment__author-name">{{ comment['author_name'] }}</div>
+          <div class="comment__created-at">{{ comment['created_at'] }}</div>
+        </div>
+        <div class="comment__content">{{ comment['content'] }}</div>
+        <div class="comment__footer">
+          <a
+            class="comment__delete-button"
+            href="php/delete-comment.php?id={{ comment['id'] }}"
+          >
+            Удалить
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
