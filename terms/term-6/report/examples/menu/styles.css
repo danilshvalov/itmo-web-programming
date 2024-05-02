@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+}
+
+.menu {
+    /* настройка положения на странице */
+    position: fixed;
+    /* настройка цвета */
+    background-color: red;
+}
+
+@media (hover: hover) and (min-width: 800px) {
+    .menu {
+        /* настройка положения на странице */
+        left: 0px;
+        width: 50px;
+        height: 100vh;
+    }
+
+    .menu:hover {
+        width: 500px;
+    }
+}
+
+@media (hover: none) or (max-width: 800px) {
+    .menu {
+        /* настройка положения на странице */
+        bottom: 0px;
+        width: 100vw;
+        height: 7vh;
+    }
+}
+
+

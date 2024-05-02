@@ -1,11 +1,21 @@
 <head>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <div class="page">
-    <form class="comment-form" method="POST" action="php/comment-form.php">
+    <div class="note">
+      <div class="note__header">
+        <h2 class="note__title">{{ note['title'] }}</h2>
+        <a class="note__notes-link" href="/">Назад к заметкам</a>
+      </div>
+      <div class="note__content">
+        {{ note['content'] }}
+      </div>
+    </div>
+    <form class="comment-form" method="POST" action="/php/comment-form.php">
       <h3 class="comment-form__title">Оставить комментарий</h3>
       <fieldset class="comment-form__fields">
+        <input type="hidden" name="note_id" value="{{ note['id'] }}" />
         <label class="comment-form__label" for="author_name">Имя</label>
         <input
           class="comment-form__input"
@@ -40,13 +50,18 @@
         <div class="comment__footer">
           <a
             class="comment__delete-button"
-            href="php/delete-comment.php?id={{ comment['id'] }}"
+            href="/php/delete-comment.php?id={{ comment['id'] }}"
           >
             Удалить
           </a>
         </div>
       </div>
       {% endfor %}
+      {% if not comments %}
+      <div class="comments__empty">
+        Здесь пока ничего нет...
+      </div>
+      {% endif %}
     </div>
   </div>
 </body>

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="post">
+  <div class="post__header">
+    <div class="post__title-info">
+      <h3 class="post__title">
+        {{ post.getTitle() }}
+      </h3>
+      <div class="post__buttons">
+        <a class="post__back-button btn btn-secondary" href="/blogs/{{ post.getBlog().getId() }}">
+          <i class="fa-solid fa-chevron-left"></i>
+          Назад к блогу
+        </a>
+      </div>
+    </div>
+    <div class="post__info">
+      <div class="post__author">
+        <i class="fa-solid fa-user"></i>
+        {{ post.getAuthor().getUsername() }}
+      </div>
+      <div class="post__date">
+        <i class="fa-solid fa-clock"></i>
+        {{ post.getCreatedAt().format('d.m.y H:i') }}
+      </div>
+    </div>
+  </div>
+  <div class="post__content">
+    {{ post.getContent() }}
+  </div>
+  <div class="post__footer">
+    <a
+      class="post__like-button btn {% if liked %}post__like-button_liked{% endif %}"
+      href="/posts/like?post_id={{ post.getId() }}">
+      <i class="fa-solid fa-heart"></i>
+    </a>
+  </div>
+  <div class="post__comments">
+    <div class="comment-form">
+      <h5 class="post__comments-title">Оставить комментарий</h5>
+      {% if user %}
+      {{ form(commentForm) }}
+      {% else %}
+      <div class="comment-form__register-suggest">
+        Зарегистрируйтесь, чтобы оставлять комментарии
+      </div>
+      {% endif %}
+    </div>
+
+    <h5 class="post__comments-title">Комментарии</h5>
+
+    {% for comment in post.getComments()|sort((a, b) => a.getCreatedAt() > b.getCreatedAt()) %}
+    <div class="post-comment">
+      <div class="post-comment__header">
+        <div class="post-comment__author">
+          <i class="fa-solid fa-user"></i>
+          {{ comment.getAuthor().getUsername() }}
+        </div>
+        <div class="post-comment__date">
+          <i class="fa-solid fa-clock"></i>
+          {{ comment.getCreatedAt().format('d.m.y H:i') }}
+        </div>
+      </div>
+      <div class="post-comment__content">
+        {{ comment.getContent() }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

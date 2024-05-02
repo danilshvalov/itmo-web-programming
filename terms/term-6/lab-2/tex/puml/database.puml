@@ -1,0 +1,73 @@
+@startuml
+
+hide circle
+skinparam roundcorner 0
+skinparam shadowing false
+skinparam linetype ortho
+skinparam FontSize 18
+skinparam defaultFontName JetBrains Mono
+scale 2
+
+skinparam class {
+    BackgroundColor white
+    BorderThickness 1.0
+    FontStyle bold
+}
+
+!procedure column($name, $name_size, $type, $type_size, $constraints="")
+    !while %strlen($name) < $name_size
+        !$name = $name + " "
+    !endwhile
+    !while %strlen($type) < $type_size
+        !$type = $type + " "
+    !endwhile
+    $name  $type  $constraints
+!endprocedure
+
+entity user_account {
+    column(id,       8, UUID,    6, PK)
+    --
+    column(username, 8, VARCHAR, 6, "UQ NN")
+    column(password, 8, VARCHAR, 6, NN)
+}
+
+entity blog {
+    column(id,          11, UUID,    6, PK)
+    --
+    column(owner_id,    11, UUID,    6, "FK NN")
+    column(name,        11, VARCHAR, 6, NN)
+    column(description, 11, VARCHAR, 6, NN)
+}
+
+entity post {
+    column(id,         10, UUID,        11, PK)
+    --
+    column(title,      10, VARCHAR,     11, NN)
+    column(content,    10, VARCHAR,     11, NN)
+    column(created_at, 10, TIMESTAMPTZ, 11, NN)
+    column(blog_id,    10, UUID,        11, "FK NN")
+    column(author_id,  10, UUID,        11, "FK NN")
+}
+
+entity comment {
+    column(id,         10, UUID,        11, PK)
+    --
+    column(content,    10, VARCHAR,     11, "NN")
+    column(post_id,    10, UUID,        11, "FK NN")
+    column(author_id,  10, UUID,        11, "FK NN")
+    column(created_at, 10, TIMESTAMPTZ, 11, NN)
+}
+
+entity like {
+    column(author_id, 9, UUID, 4, PK)
+    column(post_id,   9, UUID, 4, PK)
+}
+
+user_account ||--o{ blog
+blog ||--o{ post
+post ||--o{ comment
+user_account ||--o{ comment
+user_account ||--o{ like
+post ||--o{ like
+
+@enduml

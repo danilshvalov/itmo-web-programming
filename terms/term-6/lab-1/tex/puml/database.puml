@@ -1,0 +1,47 @@
+@startuml
+
+hide circle
+left to right direction
+skinparam roundcorner 0
+skinparam shadowing false
+skinparam linetype ortho
+skinparam FontSize 18
+skinparam defaultFontName JetBrains Mono
+scale 2
+
+skinparam class {
+    BackgroundColor white
+    BorderThickness 1.0
+    FontStyle bold
+}
+
+!procedure column($name, $name_size, $type, $type_size, $constraints="")
+    !while %strlen($name) < $name_size
+        !$name = $name + " "
+    !endwhile
+    !while %strlen($type) < $type_size
+        !$type = $type + " "
+    !endwhile
+    $name  $type  $constraints
+!endprocedure
+
+entity "note" {
+    column(id,         11, TEXT,        11, PK)
+    --
+    column(title,      11, TEXT,        11, NN)
+    column(content,    11, TEXT,        11, NN)
+    column(created_at, 11, TIMESTAMPTZ, 11, NN)
+}
+
+entity comment {
+    column(id,          11, TEXT,        11, PK)
+    --
+    column(author_name, 11, TEXT,        11, NN)
+    column(content,     11, TEXT,        11, NN)
+    column(created_at,  11, TIMESTAMPTZ, 11, NN)
+    column(note_id,     11, TEXT,        11, "FK NN")
+}
+
+"note" ||--o{ comment
+
+@enduml

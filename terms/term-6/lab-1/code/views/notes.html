@@ -1,0 +1,32 @@
+<head>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="notes">
+      <div class="notes__header">
+        <div class="notes__title">
+          Заметки
+        </div>
+        <a class="notes__create-button" href="/php/create-note.php">
+          Создать заметку
+        </a>
+      </div>
+      {% for note in notes %}
+      <div class="note-card">
+        <a class="note-card__title" href="/php/note.php?id={{ note['id'] }}">
+          {{ note['title'] }}
+        </a>
+        <div class="note-card__created-at">
+          {{ note['created_at'] }}
+        </div>
+      </div>
+      {% endfor %}
+      {% if not notes %}
+      <div class="notes__empty">
+        Здесь пока ничего нет...
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</body>

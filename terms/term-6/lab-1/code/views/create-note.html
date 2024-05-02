@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <form class="note-form" method="POST" action="/php/note-form.php">
+      <div class="note-form__header">
+        <h3 class="note-form__title">Создание заметки</h3>
+        <a class="note-form__notes-link" href="/">Назад к заметкам</a>
+      </div>
+      <fieldset class="note-form__fields">
+        <label class="note-form__label" for="title">Заголовок</label>
+        <input
+          class="note-form__input"
+          type="text"
+          id="title"
+          name="title"
+          required
+        />
+        <label class="note-form__label" for="content">Содержимое</label>
+        <textarea
+          class="note-form__text-area"
+          id="content"
+          name="content"
+          required
+        ></textarea>
+        <input
+          class="note-form__submit-button"
+          type="submit"
+          value="Отправить"
+        />
+      </fieldset>
+    </form>
+  </div>
+</body>

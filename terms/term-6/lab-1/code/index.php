@@ -8,9 +8,9 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 $loader = new Twig_Loader_Filesystem('views');
 $twig = new Twig_Environment($loader);
 
-$comments = select_comments($conn);
-$template = $twig->load('comments.html');
+$notes = select_notes($conn);
+$template = $twig->load('notes.html');
 
 echo $template->render([
-    'comments' => $comments
+    'notes' => $notes
 ]);

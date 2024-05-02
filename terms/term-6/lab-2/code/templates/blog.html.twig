@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="blog">
+  <div class="blog__header">
+    <h3 class="blog__name">
+      {{ blog.getName() }}
+    </h3>
+    <div class="blog__description">
+      {{ blog.getDescription() }}
+    </div>
+    <div class="blog__buttons">
+      <a class="blog__back-button btn btn-secondary" href="/blogs">
+        <i class="fa-solid fa-chevron-left"></i>
+        Назад к блогам
+      </a>
+      {% if user and blog.getOwner().getId() == user.getId() %}
+      <a class="blog__create-button btn btn-primary" href="/posts/create?blog_id={{ blog.getId() }}">
+        Создать пост
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% for post in blog.getPosts()|sort((a, b) => a.getCreatedAt() < b.getCreatedAt()) %}
+  <div class="post-card">
+    <div class="post-card__header">
+      <a class="post-card__name" href="/posts/{{ post.getId() }}">
+        {{ post.getTitle() }}
+      </a>
+      <a class="post-card__link btn btn-secondary" href="/posts/{{ post.getId() }}">
+        Перейти
+      </a>
+    </div>
+    <div class="post-card__date">
+      {{ post.getCreatedAt().format('d.m.y H:i') }}
+    </div>
+  </div>
+  {% endfor %}
+  {% if blog.getPosts()|length == 0 %}
+  <div class="blog__no-posts">
+    Пока что тут пусто...
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

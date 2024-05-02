@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="register">
+<h3 class="register__title">
+    Регистрация
+</h3>
+
+<div class="register__login-tooltip">
+    Уже зарегистрированы? <a href="/login">Войти</a>
+</div>
+
+{{ form(form) }}
+
+</div>
+
+{% endblock %}

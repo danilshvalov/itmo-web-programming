@@ -1,0 +1,14 @@
+.box {
+    /* настройка размеров и отступов */
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    /* настройка цвета по умолчанию */
+    background-color: red;
+}
+
+@media (max-width: 800px) {
+    .box {
+        background-color: green;
+    }
+}

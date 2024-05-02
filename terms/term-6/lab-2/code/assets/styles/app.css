@@ -1,0 +1,210 @@
+.page {
+    max-width: 1280px;
+    padding: 0 10px;
+    margin: 30px auto;
+}
+
+.login {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.login__title {
+    text-align: center;
+}
+
+.login__register-tooltip {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.register {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.register__title {
+    text-align: center;
+}
+
+.register__login-tooltip {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.blogs__header {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.blogs__create-button {
+    margin-left: auto;
+}
+
+.blog-card {
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.blog-card__header {
+    width: 100%;
+    display: flex;
+}
+
+.blog-card__name {
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.blog-card__link {
+    display: block;
+    margin-left: auto;
+}
+
+.blog-card__name:hover {
+    color: black;
+}
+
+.blogs__no-blogs {
+    padding: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.blog__header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog__buttons {
+    margin-left: auto;
+}
+
+.post__buttons {
+    margin-left: auto;
+}
+
+.post__header {
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 0;
+}
+
+.post__content {
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+    padding: 40px 0;
+}
+
+.post__comments {
+    width: 100%;
+}
+
+.post__title-info {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.post__date {
+    margin-left: auto;
+}
+
+.blog__no-posts {
+    padding: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.post-card {
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.post-card__header {
+    width: 100%;
+    display: flex;
+}
+
+.post-card__name {
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.post-card__link {
+    display: block;
+    margin-left: auto;
+}
+
+.post-card__name:hover {
+    color: black;
+}
+
+.post__info {
+    display: flex;
+    width: 100%;
+}
+
+.post-comment {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 10px 20px 20px;
+    margin-bottom: 10px;
+}
+
+.post-comment__header {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #dddddd;
+    padding: 5px 0;
+}
+
+.post-comment__date {
+    margin-left: auto;
+}
+
+.post__comments-title {
+    margin-bottom: 20px;
+}
+
+.comment-form__register-suggest {
+    text-align: center;
+    padding: 40px;
+}
+
+.post__footer {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.post__like-button {
+    margin-left: auto;
+    background-color: #aaaaaa;
+    width: 70px;
+    color: white;
+}
+
+.post__like-button:hover {
+    color: white;
+}
+
+.post__like-button_liked {
+    background-color: #dd0000;
+}

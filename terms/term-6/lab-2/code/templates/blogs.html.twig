@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="blogs">
+  <div class="blogs__header">
+    <h3 class="blogs__title">
+      Блоги
+    </h3>
+    <a class="blogs__create-button btn btn-primary" href="/blogs/create">
+      Создать блог
+    </a>
+  </div>
+  {% for blog in blogs %}
+  <div class="blog-card">
+    <div class="blog-card__header">
+      <a class="blog-card__name" href="/blogs/{{ blog.getId() }}">
+        {{ blog.getName() }}
+      </a>
+      <a class="blog-card__link btn btn-secondary" href="/blogs/{{ blog.getId() }}">
+        Перейти
+      </a>
+    </div>
+    <div class="blog-card__description">{{ blog.getDescription() }}</div>
+  </div>
+  {% endfor %}
+  {% if not blogs %}
+  <div class="blogs__no-blogs">
+    Пока что тут пусто...
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
