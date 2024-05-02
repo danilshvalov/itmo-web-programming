@@ -19,17 +19,19 @@
    [код](terms/term-5/lab-4/)).
 5. Лабораторная работа №5 ([отчет](terms/term-5/lab-5/tex/report.pdf),
    [код](terms/term-5/lab-5/)).
-5. Лабораторная работа №6 ([отчет](terms/term-5/lab-6/tex/report.pdf),
+6. Лабораторная работа №6 ([отчет](terms/term-5/lab-6/tex/report.pdf),
    [код](terms/term-5/lab-6/)).
-5. Лабораторная работа №7 ([отчет](terms/term-5/lab-7/tex/report.pdf),
+7. Лабораторная работа №7 ([отчет](terms/term-5/lab-7/tex/report.pdf),
    [код](terms/term-5/lab-7/)).
-5. Лабораторная работа №8 ([отчет](terms/term-5/lab-8/tex/report.pdf),
+8. Лабораторная работа №8 ([отчет](terms/term-5/lab-8/tex/report.pdf),
    [код](terms/term-5/lab-8/)).
 
 ### 6 семестр
 
 1. Лабораторная работа №1 ([отчет](terms/term-6/lab-1/tex/report.pdf),
    [код](terms/term-6/lab-1/)).
+2. Лабораторная работа №2 ([отчет](terms/term-6/lab-2/tex/report.pdf),
+   [код](terms/term-6/lab-2/)).
 
 ## Контакты
 
