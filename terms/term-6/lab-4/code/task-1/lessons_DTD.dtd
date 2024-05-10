@@ -1,0 +1,16 @@
+<!ELEMENT lessons (lesson+)>
+<!ELEMENT lesson (
+  CourseName, 
+  ProfessorSurname,
+  Semester,
+  AcademicHours,
+  ControlType,
+  Format
+)>
+<!ATTLIST lesson id ID #REQUIRED>
+<!ELEMENT CourseName (#PCDATA)>
+<!ELEMENT ProfessorSurname (#PCDATA)>
+<!ELEMENT Semester (#PCDATA)>
+<!ELEMENT AcademicHours (#PCDATA)>
+<!ELEMENT ControlType (#PCDATA)>
+<!ELEMENT Format (#PCDATA)>

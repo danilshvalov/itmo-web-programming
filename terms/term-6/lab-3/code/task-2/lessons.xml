@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lessons>
+  <lesson id="1">
+    <CourseName>Математика</CourseName>
+    <ProfessorSurname>Кольцова</ProfessorSurname>
+    <Semester>1</Semester>
+    <AcademicHours>108</AcademicHours>
+    <ControlType>Экзамен</ControlType>
+    <Format>Очный</Format>
+  </lesson>
+  <lesson id="2">
+    <CourseName>Программирование</CourseName>
+    <ProfessorSurname>Осипов</ProfessorSurname>
+    <Semester>2</Semester>
+    <AcademicHours>144</AcademicHours>
+    <ControlType>Зачёт</ControlType>
+    <Format>Очно-дистанционный</Format>
+  </lesson>
+  <lesson id="3">
+    <CourseName>Базы данных</CourseName>
+    <ProfessorSurname>Осетрова</ProfessorSurname>
+    <Semester>3</Semester>
+    <AcademicHours>96</AcademicHours>
+    <ControlType>Дифференцированный зачёт</ControlType>
+    <Format>Дистанционный</Format>
+  </lesson>
+</lessons>

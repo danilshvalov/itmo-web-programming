@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE books SYSTEM "books_DTD.dtd">
+<books>
+  <book id="m1">
+    <title>Ненасильственное общение. Язык Жизни</title>
+    <summary>
+      Метод ненасильственного общения (ННО) реально улучшает жизнь тысяч
+      людей. Он применим и в супружеской спальне, и в классной комнате, и за
+      столом переговоров, и на линии фронта. Никогда не поздно отказаться от
+      насилия во благо всех заинтересованных сторон. Основатель метода ННО
+      Маршалл Розенберг подробно объясняет его суть и на многочисленных
+      примерах из своей практики миротворца показывает, как им пользоваться. В
+      новом издании книги добавлена глава Разрешение конфликтов и
+      посредничество.
+    </summary>
+    <authors>
+      <author>Розенберг Маршалл</author>
+    </authors>
+    <genres>
+      <genre>Психология</genre>
+    </genres>
+    <pages>288</pages>
+    <language>RU</language>
+    <publisher>СОФИЯ МЕДИА</publisher>
+    <publication_year>2020</publication_year>
+    <isbn>978-5-90-689777-0</isbn>
+    <age_limit>16</age_limit>
+  </book>
+  <book id="m2">
+    <title>Ведьмак. Последнее желание</title>
+    <summary>
+      Ведьмак — это мастер меча и мэтр волшебства, ведущий непрерывную войну с
+      кровожадными монстрами, которые угрожают покою сказочной страны.
+      «Ведьмак» — это мир на острие меча, ошеломляющее действие, незабываемые
+      ситуации, великолепные боевые сцены.
+    </summary>
+    <authors>
+      <author>Анджей Сапковский</author>
+    </authors>
+    <genres>
+      <genre>Фэнтези</genre>
+    </genres>
+    <pages>320</pages>
+    <language>RU</language>
+    <publisher>Neoclassic</publisher>
+    <publication_year>2022</publication_year>
+    <isbn>978-5-17-073052-0</isbn>
+    <age_limit>16</age_limit>
+  </book>
+  <book id="m3">
+    <title>Harry Potter and the Philosophers Stone</title>
+    <summary>
+      Harry Potter has never even heard of Hogwarts when the letters start
+      dropping on the doormat at number four, Privet Drive. Addressed in green
+      ink on yellowish parchment with a purple seal, they are swiftly
+      confiscated by his grisly aunt and uncle. Then, on Harrys eleventh
+      birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts
+      in with some astonishing news: Harry Potter is a wizard, and he has a
+      place at Hogwarts School of Witchcraft and Wizardry.
+    </summary>
+    <authors>
+      <author>J. K. Rowling</author>
+    </authors>
+    <genres>
+      <genre>Фэнтези</genre>
+    </genres>
+    <pages>342</pages>
+    <language>EN</language>
+    <publisher>Bloomsbury</publisher>
+    <publication_year>2014</publication_year>
+    <isbn>978-1-40-885565-2</isbn>
+    <age_limit>12</age_limit>
+  </book>
+</books>

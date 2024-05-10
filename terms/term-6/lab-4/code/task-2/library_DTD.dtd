@@ -1,0 +1,23 @@
+<!ELEMENT library (book_catalog, author_catalog)>
+
+<!ELEMENT book_catalog (book*)>
+<!ELEMENT book (authors?, title, publishing, annotation?)>
+<!ELEMENT authors (author+)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT publishing (#PCDATA)>
+<!ELEMENT annotation (#PCDATA)>
+
+<!ELEMENT author_catalog (author_book*)>
+<!ELEMENT author_book (#PCDATA)>
+
+<!ATTLIST book 
+  id ID #REQUIRED
+  isbn CDATA #IMPLIED
+  year CDATA #REQUIRED 
+  issue (translation | original) "translation">  
+
+<!ATTLIST author_book idref IDREF #REQUIRED>
+
+<!ENTITY linux "Linux">
+<!ENTITY internet "Internet">

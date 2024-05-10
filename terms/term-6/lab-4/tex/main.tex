@@ -1,0 +1,258 @@
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage[russian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[
+  left=20mm,
+  right=10mm,
+  top=20mm,
+  bottom=20mm
+]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[
+  figurename=Рисунок,
+  labelsep=endash,
+]{caption}
+\usepackage[outputdir=build, newfloat]{minted}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=blue,
+  urlcolor=blue,
+}
+
+\renewcommand*{\labelitemi}{---}
+\setmainfont{Times New Roman}
+\setmonofont{JetBrains Mono}[
+  SizeFeatures={Size=11},
+]
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Листинг}
+
+\setminted{
+  fontsize=\footnotesize,
+}
+
+\setlength{\parskip}{6pt}
+
+\setlength{\parindent}{1cm}
+\setlist[itemize]{itemsep=0em,topsep=0em,parsep=0em,partopsep=0em,leftmargin=2.0cm,wide}
+\setlist[enumerate]{itemsep=0em,topsep=0em,parsep=0em,partopsep=0em,leftmargin=2.0cm,wide}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
+
+\titleformat*{\section}{\normalfont\bfseries}
+\titleformat*{\subsection}{\normalfont\bfseries}
+
+\linespread{1.5}
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+
+\begin{titlepage}
+  \vspace{0pt plus2fill}
+  \noindent
+
+  \vspace{0pt plus6fill}
+  \begin{center}
+    Санкт-Петербургский национальный исследовательский университет
+    информационных технологий, механики и оптики
+
+    \vspace{0pt plus3fill}
+
+    Факультет инфокоммуникационных технологий
+
+    Направление подготовки 11.03.02
+
+    \vspace{0pt plus2fill}
+
+    Лабораторная работа №4
+
+    <<Работа с DTD схемами документов>>
+
+  \end{center}
+
+  \vspace{0pt plus6fill}
+  \begin{flushright}
+    Выполнил: \\
+    Швалов Даниил Андреевич
+
+    Группа: К33211
+
+    Проверила: \\
+    Марченко Елена Вадимовна
+  \end{flushright}
+
+  \vspace{0pt plus5fill}
+  \begin{center}
+    Санкт-Петербург
+
+    2024
+  \end{center}
+\end{titlepage}
+
+\section{Введение}
+
+\textbf{Цель работы}: создание DTD-схемам для проверки корректности различных
+XML-документов.
+
+\section{Ход работы}
+
+\subsection*{Упражнение №1. Создание DTD схемы документа}
+
+В этом упражнении необходимо создать DTD-схему для документа
+\textit{\foreignlanguage{english}{lessons.xml}} из прошлой лабораторной работы.
+Содержимое документа \textit{\foreignlanguage{english}{lessons.xml}}
+представлено на рисунке \ref{fig:task-1:lessons.xml}. В данном документе
+содержатся следующие сущности:
+\begin{itemize}
+  \item \textbf{lessons}: сущность, представляющая список дисциплин.
+  \item \textbf{lesson}: сущность, представляющая конкретную дисциплину.
+  Содержит название дисциплины, фамилию преподавателя, номер семестра,
+  количество академических часов, тип контроля и формат проведения. Также
+  обладает уникальным идентификатором.
+  \item \textbf{CourseName}: сущность, представляющая название дисциплины.
+  \item \textbf{ProfessorSurname}: сущность, представляющая имя преподавателя,
+  который проводит данную дисциплину.
+  \item \textbf{Semester}: сущность, представляющая номер семестра, в котором
+  проводится дисциплина.
+  \item \textbf{AcademicHours}: сущность, представляющая количество
+  академических часов данной дисциплины.
+  \item \textbf{ControlType}: сущность, представляющая тип контроля (например,
+  экзамен или зачёт).
+  \item \textbf{Format}: сущность, представляющая формат проведения дисциплины
+  (например, очный или дистанционный).
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \inputminted{xml}{../code/task-1/lessons.xml}
+  \caption{Содержимое документа \textit{lessons.xml}}
+  \label{fig:task-1:lessons.xml}
+\end{figure}
+
+Исходя из ранее приведенного описания сущностей была сделана DTD-схема,
+приведенная на рисунке \ref{fig:task-1:lessons_DTD.dtd}. Для идентификаторов
+дисциплин используется тип \textit{ID}, который проверяет уникальность
+идентификатора. Для конченых значений, таких как название дисциплины,
+используется тип \textit{PCDATA}, который позволяет хранить в себе данные,
+которые будут интерпретированы как разметка XML.
+
+\begin{figure}[H]
+  \centering
+  \inputminted{dtd}{../code/task-1/lessons_DTD.dtd}
+  \caption{Содержимое схемы \textit{lessons\_DTD.dtd}}
+  \label{fig:task-1:lessons_DTD.dtd}
+\end{figure}
+
+\subsection*{Упражнение №2. Работа с DTD-схемой}
+
+В данном упражнении необходимо для существующей DTD-схемы создать XML-документ,
+который будет удовлетворять этой схеме. В качестве DTD-схемы был дан файл,
+показанный на рисунке \ref{fig:task-2:library_DTD.dtd}. В нем содержатся
+следующие сущности:
+\begin{itemize}
+  \item \textbf{library}: представляет собой библиотеку, хранит информацию о
+  книгах и авторах.
+  \item \textbf{book\_catalog}: представляет собой каталог книг, хранит
+  информацию о всех книгах.
+  \item \textbf{book}: представляет собой книгу, хранит информацию об авторах
+  книги, ее заголовок, издательство и аннотацию к книге. Имеет такие атрибуты,
+  как идентификатор, ISBN, год издания и тип (перевод или оригинал).
+  \item \textbf{authors}: представляет собой авторов книги.
+  \item \textbf{author}: представляет собой конкретного автора книги.
+  \item \textbf{title}: представляет собой заголовок книги.
+  \item \textbf{publishing}: представляет собой издательство.
+  \item \textbf{annotation}: представляет собой аннотацию к книге.
+  \item \textbf{author\_catalog}: представляет собой каталог авторов, хранит
+  информацию о книгах авторов.
+  \item \textbf{author\_book}: представляет собой книгу автора. Имеет ссылку на
+  идентификатор книги.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \inputminted{dtd}{../code/task-2/library_DTD.dtd}
+  \caption{Содержимое схемы \textit{library\_DTD.dtd}}
+  \label{fig:task-2:library_DTD.dtd}
+\end{figure}
+
+Исходя из ранее описанных атрибутов, был составлен XML-документ, приведенный на
+рисунке \ref{fig:task-2:library.xml}. В нем приведены три книги, каждая из
+которых по-разному использует различные сущности. Так, первая сущность содержит
+всевозможные атрибуты и поля. Вторая сущность показывает, что книга может иметь
+несколько авторов. Третья сущность практически не обладает полями и
+демонстрирует работу необязательных полей. Также в документе созданы две ссылки
+авторов на конкретные книги.
+
+\inputminted{xml}{../code/task-2/library.xml}
+\begin{figure}[H]
+  \centering
+  \caption{Содержимое документа \textit{library.xml}}
+  \label{fig:task-2:library.xml}
+\end{figure}
+
+\subsection*{Упражнение №3. Создание DTD-схемы}
+
+В предыдущей лабораторной работе был создан XML-документ
+\textit{\foreignlanguage{english}{books.xml}}, содержимое которого представлено
+на рисунке \ref{fig:task-3:books.xml}. В нем содержатся следующие сущности:
+\begin{itemize}
+  \item \textbf{books}: сущность, представляющая список всех книг.
+  \item \textbf{book}: сущность, представляющая конкретную книгу. Содержит
+  заголовок, аннотацию, автора, жанр, количество страниц, язык издания,
+  издательство, год издания, ISBN и возрастное ограничение. Также имеет
+  уникальный идентификатор.
+  \item \textbf{title}: сущность, представляющая заголовок книги.
+  \item \textbf{summary}: сущность, представляющая аннотацию к книге.
+  \item \textbf{authors}: сущность, представляющая авторов книги.
+  \item \textbf{author}: сущность, представляющая конкретного автора книги.
+  \item \textbf{genres}: сущность, представляющая жанры книги.
+  \item \textbf{genre}: сущность, представляющая конкретный жанр книги.
+  \item \textbf{pages}: сущность, представляющая количество страниц.
+  \item \textbf{language}: сущность, представляющая язык, на котором издана
+  книга.
+  \item \textbf{publisher}: сущность, представляющая издательство.
+  \item \textbf{publication\_year}: сущность, представляющая год издания книги.
+  \item \textbf{isbn}: сущность, представляющая ISBN книги.
+  \item \textbf{age\_limit}: сущность, представляющая возрастное ограничение
+  книги.
+\end{itemize}
+
+\inputminted{xml}{../code/task-3/books.xml}
+\begin{figure}[H]
+  \centering
+  \caption{Содержимое документа \textit{books.xml}}
+  \label{fig:task-3:books.xml}
+\end{figure}
+
+Исходя из выше описанных сущностей, была создана DTD-схема, представленная на
+рисунке \ref{fig:task-3:books_DTD.dtd}.
+
+\begin{figure}[H]
+  \centering
+  \inputminted{dtd}{../code/task-3/books_DTD.dtd}
+  \caption{Содержимое схемы \textit{books\_DTD.dtd}}
+  \label{fig:task-3:books_DTD.dtd}
+\end{figure}
+
+\section{Вывод}
+
+В ходе выполнения лабораторной работы были созданы DTD-схемы для проверки
+корректности XML-документов.
+
+\end{document}

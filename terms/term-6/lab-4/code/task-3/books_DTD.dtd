@@ -1,0 +1,29 @@
+<!ELEMENT books (book*)>
+
+<!ELEMENT book (
+  title,
+  summary?,
+  authors?,
+  genres,
+  pages,
+  language,
+  publisher?,
+  publication_year?,
+  isbn?,
+  age_limit
+)>
+<!ATTLIST book id ID #REQUIRED>
+
+<!ELEMENT authors (author*)>
+<!ELEMENT genres (genre*)>
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT summary (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ELEMENT pages (#PCDATA)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT publication_year (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!ELEMENT age_limit (#PCDATA)>
