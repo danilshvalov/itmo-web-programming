@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="isbn">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{3}\-\d{1}\-\d{2}\-\d{6}\-\d{1}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="language">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RU"/>
+      <xs:enumeration value="EN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="age_limit">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="6"/>
+      <xs:enumeration value="12"/>
+      <xs:enumeration value="16"/>
+      <xs:enumeration value="18"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="authors">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="author" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="genres">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="genre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="book">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="summary" type="xs:string"/>
+      <xs:element name="authors" type="authors"/>
+      <xs:element name="genres" type="genres"/>
+      <xs:element name="pages" type="xs:positiveInteger"/>
+      <xs:element name="language" type="language"/>
+      <xs:element name="publisher" type="xs:string"/>
+      <xs:element name="publication_year" type="xs:nonNegativeInteger"/>
+      <xs:element name="isbn" type="isbn"/>
+      <xs:element name="age_limit" type="age_limit"/>
+    </xs:sequence>
+    <xs:attribute name="id" use="required" type="xs:ID"/>
+  </xs:complexType>
+  <xs:element name="books">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="book" type="book"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

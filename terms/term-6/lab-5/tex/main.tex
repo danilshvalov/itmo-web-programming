@@ -1,0 +1,192 @@
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage[russian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[
+  left=20mm,
+  right=10mm,
+  top=20mm,
+  bottom=20mm
+]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[
+  figurename=Рисунок,
+  labelsep=endash,
+]{caption}
+\usepackage[outputdir=build, newfloat]{minted}
+\usepackage[all]{hypcap}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=blue,
+  urlcolor=blue,
+}
+
+\renewcommand*{\labelitemi}{---}
+\setmainfont{Times New Roman}
+\setmonofont{JetBrains Mono}[
+  SizeFeatures={Size=11},
+]
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Листинг}
+
+\setminted{
+  fontsize=\footnotesize,
+}
+
+\setlength{\parskip}{6pt}
+
+\setlength{\parindent}{1cm}
+\setlist[itemize]{itemsep=0em,topsep=0em,parsep=0em,partopsep=0em,leftmargin=2.0cm,wide}
+\setlist[enumerate]{itemsep=0em,topsep=0em,parsep=0em,partopsep=0em,leftmargin=2.0cm,wide}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
+
+\titleformat*{\section}{\normalfont\bfseries}
+\titleformat*{\subsection}{\normalfont\bfseries}
+
+\linespread{1.5}
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+
+\begin{titlepage}
+  \vspace{0pt plus2fill}
+  \noindent
+
+  \vspace{0pt plus6fill}
+  \begin{center}
+    Санкт-Петербургский национальный исследовательский университет
+    информационных технологий, механики и оптики
+
+    \vspace{0pt plus3fill}
+
+    Факультет инфокоммуникационных технологий
+
+    Направление подготовки 11.03.02
+
+    \vspace{0pt plus2fill}
+
+    Лабораторная работа №5
+
+    <<Работа с XML-схемами>>
+
+  \end{center}
+
+  \vspace{0pt plus6fill}
+  \begin{flushright}
+    Выполнил: \\
+    Швалов Даниил Андреевич
+
+    Группа: К33211
+
+    Проверила: \\
+    Марченко Елена Вадимовна
+  \end{flushright}
+
+  \vspace{0pt plus5fill}
+  \begin{center}
+    Санкт-Петербург
+
+    2024
+  \end{center}
+\end{titlepage}
+
+\section{Введение}
+
+\textbf{Цель работы}: создание XML-схем для проверки различных XML-документов.
+
+\section{Ход работы}
+
+\subsection*{Упражнение №1. Создание простой XML-схемы}
+
+В данном упражнении необходимо создать XML-схему для
+\foreignlanguage{english}{lessons.xml} из прошлых лабораторных работ.
+
+На рисунке \ref{fig:task-1:lessons_XML.xml} представлена получившаяся XML-схема.
+В ней представлены в те же элементы и их поля, что были в DTD-схеме. Для полей
+элемента \textit{\foreignlanguage{english}{lesson}} использовались такие типы
+данных как \textit{\foreignlanguage{english}{string}} и
+\textit{\foreignlanguage{english}{positiveInteger}}.
+
+\vspace*{2em}
+
+\bgroup
+\inputminted{xml}{../code/task-1/lessons_XML.xml}
+\captionof{figure}{XML-схема для документа lessons.xml}
+\label{fig:task-1:lessons_XML.xml}
+\egroup
+
+\subsection*{Упражнение №2. Работа с простыми типами данных XML-схемы}
+
+В данном упражнении необходимо создать XML-схему для
+\foreignlanguage{english}{resume.xml}, созданного в прошлых лабораторных
+работах. В данной XML-схеме необходимо, чтобы:
+\begin{itemize}
+  \item номер телефона проверялся с помощью регулярного выражения и был вида
+  \#\#\#-\#\#-\#\# (т.е. последовательность <<три символа дефис два символа
+  дефис два символа>>);
+  \item дата рождения могла быть не раньше 1 января 1947 года и не позже 1
+  января 1992 года;
+  \item элемент <<Семейное положение>> ограничивался значениями <<женат>>, <<не
+  женат>>, <<замужем>>, <<не замужем>>;
+  \item элемент <<Образование>> ограничивался значениями <<высшее>>,
+  <<среднее>>;
+  \item возраст ограничивался значениями от 20 до 65 лет.
+\end{itemize}
+
+Согласно упражнению, для номера телефона, даты рождения, семейного положения,
+образования и возраста были созданы собственные типы, проверяющие корректность
+данных (рисунок \ref{fig:task-2:resume_XML.xml}). Для номера телефона
+используется регулярное выражение, которое проверяет, что номер соответствует
+формату <<\#\#\#-\#\#-\#\#>>. Для даты рождения используется стандартный тип
+\textit{\foreignlanguage{english}{date}} с ограничениями по минимальному и
+максимальному значению. Для семейного положения и образования используется
+тип-перечисление. Для возраста был создан тип, который принимает неотрицательное
+число и проверяет, что оно находится в заданном диапазоне.
+
+\inputminted{xml}{../code/task-2/resume_XML.xml}
+\begin{figure}[H]
+  \caption{XML-схема для документа resume.xml}
+  \label{fig:task-2:resume_XML.xml}
+\end{figure}
+
+\subsection*{Упражнение №3. Работа с XML-схемой}
+
+В данном упражнении необходимо создать XML-схему для документа, созданного в
+третьем упражнении прошлых лабораторных работ.
+
+В XML-схеме, представленной на рисунке \ref{fig:task-3:books_XML.xml}, были
+созданы отдельные типы данных для ISBN, языка, возрастного ограничения. Так,
+например, для ISBN производится проверка соответствия введенного значения
+формату <<\#\#\#-\#-\#\#-\#\#\#\#\#\#-\#>> с помощью регулярного выражения. Для
+проверки корректности языка и возрастного ограничения используется перечисление.
+Также были созданы типы для всех остальных элементов, которые раньше были
+представлены в DTD-схеме.
+
+\inputminted{xml}{../code/task-3/books_XML.xml}
+\begin{figure}[H]
+  \caption{XML-схема для документа books.xml}
+  \label{fig:task-3:books_XML.xml}
+\end{figure}
+
+\section{Вывод}
+
+В ходе выполнения лабораторной работы были созданы XML-схемы для проверки
+корректности XML-документов.
+
+\end{document}
