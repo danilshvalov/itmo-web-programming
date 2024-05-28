@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="university.xsl"?>
+<university>
+  <courses>
+    <course id="l1" professorId="p1">
+      <name>Математика</name>
+      <semester>2</semester>
+      <academic_hours>108</academic_hours>
+      <control_type>Экзамен</control_type>
+      <format>Очный</format>
+    </course>
+    <course id="l2" professorId="p2">
+      <name>Программирование</name>
+      <semester>3</semester>
+      <academic_hours>144</academic_hours>
+      <control_type>Зачёт</control_type>
+      <format>Очно-дистанционный</format>
+    </course>
+    <course id="l3" professorId="p3">
+      <name>Базы данных</name>
+      <semester>1</semester>
+      <academic_hours>96</academic_hours>
+      <control_type>Дифференцированный зачёт</control_type>
+      <format>Дистанционный</format>
+    </course>
+  </courses>
+  <professors>
+    <professor id="p1">
+      <last_name>Кольцова</last_name>
+      <first_name>Татьяна</first_name>
+      <patronymic>Борисовна</patronymic>
+      <qualification>Преподаватель</qualification>
+      <email>tbkoltsova@itmo.ru</email>
+    </professor>
+    <professor id="p2">
+      <last_name>Осипов</last_name>
+      <first_name>Никита</first_name>
+      <patronymic>Алексеевич</patronymic>
+      <qualification>Ординарный доцент</qualification>
+      <email>naosipov@itmo.ru</email>
+    </professor>
+    <professor id="p3">
+      <last_name>Осетрова</last_name>
+      <first_name>Ирина</first_name>
+      <patronymic>Станиславовна</patronymic>
+      <qualification>Старший преподаватель</qualification>
+      <email>osetrova@itmo.ru</email>
+    </professor>
+  </professors>
+</university>

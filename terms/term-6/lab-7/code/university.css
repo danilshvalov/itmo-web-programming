@@ -1,0 +1,37 @@
+* {
+  font-size: 16px;
+  font-family: Arial;
+}
+
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #cccccc;
+}
+
+th {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  background-color: #eeeeee;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #cccccc;
+}
+
+tr:target {
+  background-color: #ffa;
+}
+
+a:visited {
+  color: blue;
+}
