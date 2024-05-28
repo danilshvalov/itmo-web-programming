@@ -38,6 +38,8 @@
    [код](terms/term-6/lab-4/)).
 5. Лабораторная работа №5 ([отчет](terms/term-6/lab-5/tex/report.pdf),
    [код](terms/term-6/lab-5/)).
+6. Лабораторная работа №6 ([отчет](terms/term-6/lab-6/tex/report.pdf),
+   [код](terms/term-6/lab-6/)).
 
 ## Контакты
 

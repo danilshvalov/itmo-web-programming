@@ -1,0 +1,174 @@
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage[russian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[
+  left=20mm,
+  right=10mm,
+  top=20mm,
+  bottom=20mm
+]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[
+  figurename=Рисунок,
+  labelsep=endash,
+]{caption}
+\usepackage[outputdir=build, newfloat]{minted}
+\usepackage[all]{hypcap}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  filecolor=blue,
+  urlcolor=blue,
+}
+
+\renewcommand*{\labelitemi}{---}
+\setmainfont{Times New Roman}
+\setmonofont{JetBrains Mono}[
+  SizeFeatures={Size=11},
+]
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Листинг}
+
+\setminted{
+  fontsize=\footnotesize,
+}
+
+\setlength{\parskip}{6pt}
+
+\setlength{\parindent}{1cm}
+\setlist[itemize]{itemsep=0em,topsep=0em,parsep=0em,partopsep=0em,leftmargin=2.0cm,wide}
+\setlist[enumerate]{itemsep=0em,topsep=0em,parsep=0em,partopsep=0em,leftmargin=2.0cm,wide}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
+
+\titleformat*{\section}{\normalfont\bfseries}
+\titleformat*{\subsection}{\normalfont\bfseries}
+
+\linespread{1.5}
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+
+\begin{titlepage}
+  \vspace{0pt plus2fill}
+  \noindent
+
+  \vspace{0pt plus6fill}
+  \begin{center}
+    Санкт-Петербургский национальный исследовательский университет
+    информационных технологий, механики и оптики
+
+    \vspace{0pt plus3fill}
+
+    Факультет инфокоммуникационных технологий
+
+    Направление подготовки 11.03.02
+
+    \vspace{0pt plus2fill}
+
+    Лабораторная работа №6
+
+    <<Введение в XSLT и работа с XPath выражениями>>
+
+  \end{center}
+
+  \vspace{0pt plus6fill}
+  \begin{flushright}
+    Выполнил: \\
+    Швалов Даниил Андреевич
+
+    Группа: К33211
+
+    Проверила: \\
+    Марченко Елена Вадимовна
+  \end{flushright}
+
+  \vspace{0pt plus5fill}
+  \begin{center}
+    Санкт-Петербург
+
+    2024
+  \end{center}
+\end{titlepage}
+
+\section{Введение}
+
+\textbf{Цель работы}: создание XPath выражений для извлечения данных из
+XML-документов.
+
+\section{Ход работы}
+
+\subsection*{Упражнение №1. Работа с XPath выражениями}
+
+В данном упражнении необходимо написать XPath выражения для документа
+\foreignlanguage{english}{lessons.xml}, которые выводят
+\begin{enumerate}
+  \item второе занятие;
+  \item предпоследнее занятие;
+  \item общее количество занятий;
+  \item количество академический часов третьего занятия.
+\end{enumerate}
+
+Получившиеся XPath представлены на рисунке \ref{fig:task-1:less_template_2.xml}.
+Второе занятие было получено с помощью предиката
+\foreignlanguage{english}{\textit{position() = 2}}. Предпоследнее занятие было
+получено похожим образом: из последнего занятия (с помощью предиката
+\foreignlanguage{english}{\textit{last()}}) с помощью вычитания было получено
+предпоследнее занятие. Количество занятий было получено с помощью предиката
+\foreignlanguage{english}{\textit{count()}}. Количество академических часов
+третьего занятия было получено с помощью предиката
+\foreignlanguage{english}{\textit{position() = 3}} и выбором дочернего узла.
+
+\bgroup
+\inputminted{xml}{../code/task-1/less_template_2.xsl}
+\captionof{figure}{XPath выражения для документа lessons.xml}
+\label{fig:task-1:less_template_2.xml}
+\egroup
+
+\subsection*{Упражнение №2. XPath выражения}
+
+В данном упражнении необходимо написать XPath выражения для документа
+\foreignlanguage{english}{resume.xml}, которые выводят тех кандидатов, у
+которых:
+\begin{enumerate}
+  \item возраст меньше 32 лет;
+  \item возраст больше или равен 33 годам.
+\end{enumerate}
+
+Получившиеся XPath представлены на рисунке \ref{fig:task-2:resume_template.xml}.
+Для получения кандидатов младше 32 лет использовался предикат
+\textit{\foreignlanguage{english}{number(.) < 32}}, который проверяет, что
+численное значение, хранящееся в узле \textit{Age}, меньше 32. Для получения
+кандидатов старше 32 лет использовался предикат
+\textit{\foreignlanguage{english}{number(.) >= 33}}, который похож на
+предыдущий, за исключением \textit{>= 33}. Так как угловые скобочки
+зарезервированы в XML, вместо \textit{<} и \textit{<} используются \textit{\&lt;}
+и \textit{\&gt;} соответственно.
+
+\bgroup
+\inputminted{xml}{../code/task-2/resume_template.xsl}
+\captionof{figure}{XPath выражения для документа resume.xml}
+\label{fig:task-2:resume_template.xml}
+\egroup
+
+\section{Вывод}
+
+В ходе выполнения лабораторной работы были созданы XPath выражения для
+извлечения данных из XML-документов.
+
+\end{document}
